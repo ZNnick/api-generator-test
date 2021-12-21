@@ -1,0 +1,230 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "复杂请求生成测试",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [],
+  "paths": {
+    "/create": {
+      "post": {
+        "summary": "创建生产单",
+        "x-apifox-folder": "",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "productOrderHeader": {
+                    "type": "object",
+                    "properties": {
+                      "consignTime": {
+                        "type": "number",
+                        "title": "交付时间"
+                      },
+                      "customer": {
+                        "type": "string",
+                        "title": "客户"
+                      },
+                      "amount": {
+                        "type": "integer",
+                        "title": "订单数量（cm）"
+                      },
+                      "craftOrganization": {
+                        "type": "string",
+                        "title": "工艺组织"
+                      },
+                      "density": {
+                        "type": "string",
+                        "title": "针织密度"
+                      },
+                      "squareGrams": {
+                        "type": "string",
+                        "title": "平方克"
+                      },
+                      "remarks": {
+                        "type": "string",
+                        "title": "订单补充说明"
+                      },
+                      "fabricName": {
+                        "type": "string",
+                        "title": "胚布名"
+                      }
+                    },
+                    "required": [
+                      "consignTime",
+                      "customer",
+                      "amount",
+                      "craftOrganization",
+                      "density",
+                      "squareGrams",
+                      "remarks",
+                      "fabricName"
+                    ],
+                    "title": "生产单表头"
+                  },
+                  "craftOrder": {
+                    "type": "object",
+                    "properties": {
+                      "orderName": {
+                        "type": "string",
+                        "title": "工艺名"
+                      },
+                      "craftRemarks": {
+                        "type": "string",
+                        "title": "工艺补充说明"
+                      },
+                      "craftItems": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "combSection": {
+                              "type": "string",
+                              "title": "梳节"
+                            },
+                            "materialStandard": {
+                              "type": "string",
+                              "title": "原料规格"
+                            },
+                            "materialBatch": {
+                              "type": "string",
+                              "title": "原料批号"
+                            },
+                            "coilLength": {
+                              "type": "string",
+                              "title": "线圈长度（mm/腊克）"
+                            },
+                            "headVeins": {
+                              "type": "string",
+                              "title": "头纹（根）"
+                            },
+                            "panHeadNum": {
+                              "type": "string",
+                              "title": "盘头个数"
+                            },
+                            "sendYarnFeed": {
+                              "type": "string",
+                              "title": "送纱量"
+                            },
+                            "padYarnRecord": {
+                              "type": "string",
+                              "title": "垫纱记录"
+                            },
+                            "crossYarnWay": {
+                              "type": "string",
+                              "title": "穿纱方式"
+                            }
+                          },
+                          "required": [
+                            "combSection",
+                            "materialStandard",
+                            "materialBatch",
+                            "coilLength",
+                            "headVeins",
+                            "panHeadNum",
+                            "sendYarnFeed",
+                            "padYarnRecord",
+                            "crossYarnWay"
+                          ]
+                        },
+                        "title": "工艺项"
+                      }
+                    },
+                    "required": [
+                      "orderName",
+                      "craftRemarks",
+                      "craftItems"
+                    ],
+                    "title": "工艺单"
+                  },
+                  "workOrders": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "machineId": {
+                          "type": "string",
+                          "title": "机台id"
+                        },
+                        "machineNum": {
+                          "type": "string",
+                          "title": "机台编号"
+                        },
+                        "doorWidth": {
+                          "type": "string",
+                          "title": "幅宽"
+                        },
+                        "doorCount": {
+                          "type": "string",
+                          "title": "门幅数"
+                        },
+                        "workShop": {
+                          "type": "string",
+                          "title": "车间"
+                        },
+                        "dropClothLength": {
+                          "type": "integer",
+                          "title": "预计落布长度"
+                        },
+                        "speed": {
+                          "type": "string",
+                          "title": "车速"
+                        },
+                        "predictProducedLength": {
+                          "type": "integer",
+                          "title": "预计生产长度"
+                        }
+                      },
+                      "required": [
+                        "machineId",
+                        "machineNum",
+                        "doorWidth",
+                        "doorCount",
+                        "workShop",
+                        "dropClothLength",
+                        "speed",
+                        "predictProducedLength"
+                      ]
+                    },
+                    "title": "工单"
+                  }
+                },
+                "required": [
+                  "productOrderHeader",
+                  "craftOrder",
+                  "workOrders"
+                ],
+                "title": "生产单"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
